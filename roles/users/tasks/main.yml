@@ -1,7 +1,8 @@
 ---
     - name: New user add
       user:
-        name: {{ username }}
+        name:
+          - {{ username }}
         password: "{{ 'username.password' | password_hash('sha512') }}"
         shell: /bin/{{ shell }}
       register: useradd
