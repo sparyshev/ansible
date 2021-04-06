@@ -2,6 +2,7 @@
     hostname: server1
     version: 7
     webserver: nginx
+    shell: bash
     username:
       taras:
         password: taras
