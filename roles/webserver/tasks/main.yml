@@ -13,6 +13,6 @@
 
     - name: "{{ webserver }} start"
       service: name={{ webserver }} state=started
-      when: webserverinstalled.changed != failed
+      when: webserverinstalled is succeeded
       tags:
         - webserver_start
