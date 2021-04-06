@@ -2,10 +2,10 @@
     hostname: server1
     version: 7
     webserver: nginx
-    user:
-      - taras:
+    username:
+      taras:
         password: taras
-      - sergey:
+      sergey:
         password: sergey
-      - ivan:
+      ivan:
         password: ivan
