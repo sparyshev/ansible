@@ -1,3 +1,6 @@
 [webserver]
 server1
 server2
+
+[users:children]
+webserver
