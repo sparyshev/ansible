@@ -7,7 +7,6 @@
 
     - name: Install webserver
       yum: pkg={{ webserver }} state=latest
-      when: webserver_repo|success
       register: webserverinstalled
       tags:
         - webserver_install
