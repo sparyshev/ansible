@@ -10,7 +10,7 @@
       register: webserverinstalled
       tags: webserver_install
 
-    - name: {{ webserver }} start
+    - name: "{{ webserver }}" start
       service: name={{ webserver }} state=started
       when: webserverinstalled|success
       tags: webserver_start
