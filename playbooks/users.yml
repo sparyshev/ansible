@@ -1,5 +1,5 @@
 ---
     - hosts: webserver
-#      sudo: yes
+      become: yes
       roles:
         - users
