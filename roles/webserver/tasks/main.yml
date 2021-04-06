@@ -1,5 +1,5 @@
 ---
-    - name: Add Nginx Repository
+    - name: "Add {{ webserver }} Repository"
       template: src={{ webserver }}.repo dest=/etc/yum.repos.d/ owner=root group=root
       register: webserver_repo
       tags: Repository
