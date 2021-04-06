@@ -1,0 +1,4 @@
+---
+    hostname: server1
+    version: 7
+    webserver: nginx

@@ -1,0 +1,6 @@
+[nginx]
+name=nginx repo for {{ hostname }}
+baseurl=http://nginx.org/packages/centos/{{ version }}/$basearch/
+gpgcheck=0
+enabled=1
+priority=1

@@ -1,0 +1,16 @@
+---
+    - name: Add Nginx Repository
+      template: src={{ webserver }}.repo dest=/etc/yum.repos.d/ owner=root group=root
+      register: webserver_repo
+      tags: Repository
+
+    - name: Install webserver
+      yum: pkg= {{ webserver }} state=latest
+      when: webserver_repo|success
+      register: webserverinstalled
+      tags: webserver_install
+
+    - name: {{ webserver }} start
+      service: name={{ webserver }} state=started
+      when: webserverinstalled|success
+      tags: webserver_start
