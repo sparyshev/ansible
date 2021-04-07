@@ -1,10 +1,10 @@
 ---
+    - debug:
+        msg: "{{ list.username }}"
+        
     - name: New user add
       user:
         name:
           - "{{ list.username }}"
         password: "{{ 'list.password' | password_hash('sha512') }}"
         shell: "/bin/{{ 'list.shell' }}"
-
-    - debug:
-        msg: "{{ list.username }}"
