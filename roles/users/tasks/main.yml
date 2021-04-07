@@ -3,7 +3,7 @@
       user:
         name: "{{ item.name }}"
         password: "{{ item.password | password_hash('sha512') }}"
-        shell: "{{ item.shell }}"
+        shell: "/bin/{{ item.shell }}"
       with_items: "{{ username }}"
 #        name:
 #          - {{ username.name }}
