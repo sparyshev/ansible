@@ -2,7 +2,7 @@
     - name: New user add
       user:
         name:
-          - {{ list.username }}
+          - "{{ list.username }}"
         password: "{{ 'list.password' | password_hash('sha512') }}"
         shell: "/bin/{{ 'list.shell' }}"
 
