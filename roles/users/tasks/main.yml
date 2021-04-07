@@ -1,10 +1,9 @@
 ---
     - name: New user add
       user:
-        name:
-          - "{{ username.name }}"
+        name: {{ username.name }}
         password: "{{ 'username.password' | password_hash('sha512') }}"
         shell: "/bin/{{ 'username.shell' }}"
-        
+
     - debug:
         msg: "{{ username.name }}"
