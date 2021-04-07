@@ -1,13 +1,8 @@
 ---
-    - debug:
-        msg:
-          - "{{ username.user }}"
-          - "{{ username.password }}"
-          - "{{ username.shell }}"
-
     - name: New user add
       user:
         name:
-          - "{{ username.user }}"
-        password: "{{ 'username.password' | password_hash('sha512') }}"
-        shell: "/bin/{{ 'username.shell' }}"
+          - "{{ item.key }}"
+        password: "{{ 'item.value.password' | password_hash('sha512') }}"
+        shell: "/bin/{{ 'item.value.shell' }}"
+        with_dict: "{{ username }}"
