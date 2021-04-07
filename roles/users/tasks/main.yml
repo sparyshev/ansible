@@ -2,7 +2,7 @@
     - name: New user add
       user:
         name: "{{ item.name }}"
-        password: "{{ item.password }}"
+        password: "{{ 'item.password' | password_hash('sha512') }}"
         shell: "{{ item.shell }}"
       with_items: "{{ username }}"
 #        name:
