@@ -1,8 +1,12 @@
 ---
     - name: New user add
       user:
-        name:
-          - {{ username.name }}
-        password: "{{ 'username.value.password' | password_hash('sha512') }}"
-        shell: "/bin/{{ 'username.value.shell' }}"
-        with_dict: "{{ username }}"
+        name: "{{ item.name }}"
+        password: "{{ item.password }}"
+        shell: "{{ item.shell }}"
+        with_items: "{{ username }}"
+#        name:
+#          - {{ username.name }}
+#        password: "{{ 'username.value.password' | password_hash('sha512') }}"
+#        shell: "/bin/{{ 'username.value.shell' }}"
+#        with_dict: "{{ username }}"
