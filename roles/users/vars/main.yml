@@ -1,5 +1,5 @@
 ---
-  hosts: server2
+    hostname: server2
     username:
       - name: "ansible"
         password: "ansible"
