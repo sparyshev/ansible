@@ -4,7 +4,7 @@
         name: "{{ item.name }}"
         password: "{{ item.password }}"
         shell: "{{ item.shell }}"
-        with_items: "{{ username }}"
+      with_items: "{{ username }}"
 #        name:
 #          - {{ username.name }}
 #        password: "{{ 'username.value.password' | password_hash('sha512') }}"
