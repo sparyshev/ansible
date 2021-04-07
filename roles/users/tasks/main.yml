@@ -5,6 +5,3 @@
           - "{{ username.name }}"
         password: "{{ 'username.password' | password_hash('sha512') }}"
         shell: "/bin/{{ 'username.shell' }}"
-      register: useradd
-      tags:
-        - webserver_install
