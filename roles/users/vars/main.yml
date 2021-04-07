@@ -1,5 +1,5 @@
 ---
-    list:
-      - username: ansible
-        password: ansible
+    username:
+      - user: taras
+        password: taras
         shell: bash
