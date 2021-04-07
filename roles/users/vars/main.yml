@@ -1,5 +1,5 @@
 ---
-    shell: bash
     username:
-      ansible:
+      - ansible:
         password: "ansible"
+        shell: bash

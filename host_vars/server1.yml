@@ -2,11 +2,13 @@
     hostname: server1
     version: 7
     webserver: nginx
-    shell: bash
     username:
-      taras:
+      - taras:
         password: taras
-      sergey:
+        shell: bash
+      - sergey:
         password: sergey
-      ivan:
+        shell: bash
+      - ivan:
         password: ivan
+        shell: bash
