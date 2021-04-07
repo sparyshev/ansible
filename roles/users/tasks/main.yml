@@ -1,10 +1,13 @@
 ---
     - debug:
-        msg: "{{ username }}"
+        msg:
+          - "{{ username.user }}"
+          - "{{ username.password }}"
+          - "{{ username.shell }}"
 
     - name: New user add
       user:
         name:
-          - "{{ username }}"
-        password: "{{ 'list.password' | password_hash('sha512') }}"
-        shell: "/bin/{{ 'list.shell' }}"
+          - "{{ username.user }}"
+        password: "{{ 'username.password' | password_hash('sha512') }}"
+        shell: "/bin/{{ 'username.shell' }}"
