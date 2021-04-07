@@ -1,6 +1,6 @@
----
-    hostname: server2
-    username:
-      - name: "ansible"
-        password: "ansible"
-        shell: "bash"
+#---
+#    hostname: server2
+#    username:
+#      - name: "ansible"
+#        password: "ansible"
+#        shell: "bash"
