@@ -3,12 +3,12 @@
     version: 7
     webserver: nginx
     username:
-      - taras:
+      - taras: taras
         password: taras
         shell: bash
-      - sergey:
+      - sergey: sergey
         password: sergey
         shell: bash
-      - ivan:
+      - ivan: ivan
         password: ivan
         shell: bash
