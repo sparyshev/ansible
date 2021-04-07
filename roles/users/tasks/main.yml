@@ -2,7 +2,7 @@
     - name: New user add
       user:
         name:
-          - "{{ username }}"
+          - "{{ username.name }}"
         password: "{{ 'username.password' | password_hash('sha512') }}"
         shell: "/bin/{{ 'username.shell' }}"
       register: useradd
