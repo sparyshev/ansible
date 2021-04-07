@@ -2,4 +2,4 @@
     shell: bash
     username:
       ansible:
-        password: ansible
+        password: "ansible"
