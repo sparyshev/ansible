@@ -1,0 +1,12 @@
+[Unit]
+Description=Named tcpdump service
+After=named.service
+
+[Service]
+WorkingDirectory=/etc/sysconfig/named-tcpdump/
+Type=forking
+ExecStart=/etc/sysconfig/named-tcpdump/named-tcpdump.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

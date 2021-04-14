@@ -1,2 +1,36 @@
 ---
 # tasks file for named-tcpdump
+    - name: Install tcpdump
+      yum:
+        name:
+          - tcpdump
+        state: present
+        disable_gpg_check: yes
+      tags:
+        - packages
+
+    - name: Copy config files
+      copy:
+        src: files/named-tcpdump
+        dest: /etc/sysconfig/
+        owner: root
+        group: root
+        mode: 0644
+      tags:
+        - conf
+
+    - name: Copy systemd service
+      copy:
+        src: files/named-tcpdump.service
+        dest: /etc/systemd/system/
+        owner: root
+        group: root
+        mode: 0644
+      tags:
+        - conf
+
+    - name: Restart service named-tcpdump, daemon-reload to pick up config changes
+      ansible.builtin.systemd:
+      state: restarted
+      daemon_reload: yes
+      name: name-tcpdump
