@@ -36,6 +36,6 @@
 
     - name: Restart service named-tcpdump, daemon-reload to pick up config changes
       ansible.builtin.systemd:
-      state: restarted
-      daemon_reload: yes
-      name: name-tcpdump
+        state: restarted
+        daemon_reload: yes
+        name: name-tcpdump
