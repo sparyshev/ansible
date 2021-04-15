@@ -4,6 +4,3 @@ server2
 
 [users:children]
 webserver
-
-[testgroup]
-test
