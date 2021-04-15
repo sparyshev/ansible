@@ -5,8 +5,8 @@
 #  gather_facts: true
 #
 #  tasks:
-    - name: Run a command using a templated variable (always use quote filter to avoid injection)
-      ansible.builtin.shell: echo "nameserver 8.8.8.8" > /etc/resolv.conf; ping -c 3 8.8.8.8; ping -c 3 mail.ru
+    - name: Setup google DNS
+      ansible.builtin.shell: echo "nameserver 8.8.8.8" > /etc/resolv.conf;
 
     - name: Install tcpdump
       yum:
