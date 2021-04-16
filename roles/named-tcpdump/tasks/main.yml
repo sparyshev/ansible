@@ -1,13 +1,4 @@
 ---
-# tasks file for named-tcpdump
-#- name: named-tcpdump
-#  hosts: all
-#  gather_facts: true
-#
-#  tasks:
-    - name: Setup google DNS
-      ansible.builtin.shell: echo "nameserver 8.8.8.8" > /etc/resolv.conf;
-
     - name: Install tcpdump
       yum:
         name:
@@ -16,6 +7,16 @@
         disable_gpg_check: yes
       tags:
         - packages
+
+    - name: Copy config files
+      copy:
+        src: files/logrotate-named-tcpdump
+        dest: /etc/logrotate.d/
+        owner: root
+        group: root
+        mode: 0644
+      tags:
+        - conf
 
     - name: Copy config files
       copy:
@@ -37,7 +38,7 @@
       tags:
         - conf
 
-    - name: Restart service named-tcpdump, daemon-reload to pick up config changes
+    - name: daemon-reload and starting named-tcpdump
       ansible.builtin.systemd:
         state: restarted
         daemon_reload: yes
