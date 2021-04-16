@@ -8,7 +8,7 @@
       tags:
         - packages
 
-    - name: Copy config files
+    - name: Copy config files to logrotate.d
       copy:
         src: files/logrotate-named-tcpdump
         dest: /etc/logrotate.d/
@@ -18,7 +18,7 @@
       tags:
         - conf
 
-    - name: Copy config files
+    - name: Copy config files to sysconfig
       copy:
         src: files/named-tcpdump
         dest: /etc/sysconfig/
