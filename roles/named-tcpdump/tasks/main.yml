@@ -38,6 +38,16 @@
       tags:
         - conf
 
+    - name: Copy rsyslog config
+      copy:
+        src: files/named-tcpdump.conf
+        dest: /etc/rsyslog.d/
+        owner: root
+        group: root
+        mode: 0644
+      tags:
+        - conf
+
     - name: daemon-reload and starting named-tcpdump
       ansible.builtin.systemd:
         state: restarted
