@@ -1,17 +1,14 @@
 /var/log/rsyslog/tcpdump.log {
-    rotate 2
-    size=1M
+    rotate 1
+    size=100M
     missingok
     notifempty
     daily
+    nodateext
     compress
-    delaycompress
-    maxage 3
+    maxage 2
     create 0644 root root
-    prerotate
-        /usr/bin/systemctl stop named-tcpdump
-    endscript
     postrotate
-        /usr/bin/systemctl start named-tcpdump
+        /usr/bin/systemctl restart named-tcpdump
     endscript
 }
