@@ -4,5 +4,7 @@
   tasks:
     - name: "Include named-tcpdump"
       include_role:
-        name: "named"
-        name: "named-tcpdump"
+        name:
+          - "named"
+          - "named-tcpdump"
+#        name: "named-tcpdump"
