@@ -1,0 +1,8 @@
+---
+    - name: nslookup_check
+      command: nslookup mail.ru 127.0.0.1
+      register: nslookup_check
+
+    - name: nslookup_state
+      command: echo "Bind is OK"
+      when: nslookup_check|success
