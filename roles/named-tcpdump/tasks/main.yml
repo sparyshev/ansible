@@ -54,3 +54,7 @@
         enabled: yes
         daemon_reload: yes
         name: named-tcpdump
+
+    - name: tests
+      include_tasks:
+        file: tests.yml
