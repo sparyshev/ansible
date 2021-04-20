@@ -51,5 +51,6 @@
     - name: daemon-reload and starting named-tcpdump
       ansible.builtin.systemd:
         state: restarted
+        enabled: yes
         daemon_reload: yes
         name: named-tcpdump
