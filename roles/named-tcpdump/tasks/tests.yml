@@ -5,4 +5,4 @@
 
     - name: nslookup_state
       command: echo "Bind is OK"
-      when: nslookup_check|success
+      when: nslookup_check is succeeded
