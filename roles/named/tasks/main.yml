@@ -11,6 +11,13 @@
       tags:
         - packages
 
+    - name: Create bind cache directory
+      ansible.builtin.file:
+        path: /var/cache/bind
+        state: directory
+        owner: named
+        group: named
+
     - name: Copy config files to /etc
       copy:
         src: files/named.conf
