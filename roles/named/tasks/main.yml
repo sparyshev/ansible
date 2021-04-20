@@ -1,2 +1,39 @@
 ---
-# tasks file for named
+    - name: configure name servers
+      ansible.netcommon.net_system:
+        name_servers:
+          - 8.8.8.8
+          - 8.8.4.4
+      tags: google dns
+
+    - name: Install bind 9.11
+      yum:
+        name:
+          - bind
+        state: present
+        disable_gpg_check: yes
+      tags:
+        - packages
+
+    - name: Copy config files to /etc
+      copy:
+        src: files/named.conf
+        dest: /etc/
+        owner: root
+        group: root
+        mode: 0644
+      tags:
+        - conf
+
+    - name: reconfigure name servers
+      ansible.netcommon.net_system:
+        name_servers:
+          - 127.0.0.1
+      tags: local dns
+
+    - name: daemon-reload, enabled, started
+      ansible.builtin.systemd:
+        state: restarted
+        enabled: yes
+        daemon_reload: yes
+        name: named
