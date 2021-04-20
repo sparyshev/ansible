@@ -2,9 +2,9 @@
 - name: Converge
   hosts: all
   tasks:
+    - name: "Include named"
+      include_role:
+        name: "named"
     - name: "Include named-tcpdump"
       include_role:
-        name:
-          - "named"
-          - "named-tcpdump"
-#        name: "named-tcpdump"
+        name: "named-tcpdump"
