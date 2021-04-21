@@ -39,8 +39,8 @@
         - conf
 
     - name: Copy rsyslog config
-      copy:
-        src: files/named-tcpdump.conf
+      template:
+        src: template/named-tcpdump.conf
         dest: /etc/rsyslog.d/
         owner: root
         group: root
