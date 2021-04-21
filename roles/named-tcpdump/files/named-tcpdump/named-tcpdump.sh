@@ -9,7 +9,7 @@ function funcLogDir {
 }
 
 function funcTcpdump {
-        cmd=`$TCPDUMP_BIN $TCPDUMP_OPTIONS | grep -B 1 --line-buffered -E " A [0-9]" >> $LOG_DIR$LOG_FILE &`
+        cmd=`$TCPDUMP_BIN $TCPDUMP_OPTIONS | egrep --line-buffered -e "\+\sA\?" -e "[0-9]{1,2}\/13\/[0-9]{1,2}\sA\s([0-9]{1,3}[\.]){3}[0-9]{1,3}" >> $LOG_DIR$LOG_FILE &`
         echo $cmd
 }
 
