@@ -41,7 +41,7 @@
     - name: Copy rsyslog config
       template:
         src: templates/named-tcpdump.conf.j2
-        dest: /etc/rsyslog.d/
+        dest: /etc/rsyslog.d/named-tcpdump.conf
         owner: root
         group: root
         mode: 0644
