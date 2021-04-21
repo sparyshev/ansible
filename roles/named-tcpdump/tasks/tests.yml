@@ -3,6 +3,10 @@
       command: nslookup mail.ru 127.0.0.1
       register: nslookup_check
 
-    - name: nslookup_state
-      command: echo "Bind is OK"
+    - name: log file check
+      command: cat /var/log/rsyslog/tcpdump.log
       when: nslookup_check is succeeded
+      register: log_check
+
+    - debug:
+      var: log_check.output
