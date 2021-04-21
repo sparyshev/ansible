@@ -1,6 +1,6 @@
 #### NAMED-TCPDUMP settings file ####
 
 TCPDUMP_BIN="/usr/sbin/tcpdump "
-TCPDUMP_OPTIONS=" -i any -nnn port 53 -l -tttt -v"
+TCPDUMP_OPTIONS=" -i any -nnn port 53 -l -tttt "
 LOG_DIR="/var/log/rsyslog/"
 LOG_FILE="tcpdump.log"
