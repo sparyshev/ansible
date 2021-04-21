@@ -9,4 +9,4 @@
       register: log_check
 
     - debug:
-      var: log_check.output
+        var: log_check.output
