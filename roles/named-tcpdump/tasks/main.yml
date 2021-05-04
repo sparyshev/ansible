@@ -57,7 +57,7 @@
         name: "{{ item }}"
       with_items:
         - named-tcpdump
-        - rsyslogd
+        - rsyslog
 
     - name: tests
       include_tasks:
