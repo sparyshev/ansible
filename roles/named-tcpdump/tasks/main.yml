@@ -53,9 +53,10 @@
         state: restarted
         enabled: yes
         daemon_reload: yes
-        name:
-          - named-tcpdump
-          - rsyslog
+        name: "{{ item }}"
+      with_items:
+        - named-tcpdump
+        - rsyslog
 
     - name: tests
       include_tasks:
