@@ -53,7 +53,9 @@
         state: restarted
         enabled: yes
         daemon_reload: yes
-        name: named-tcpdump
+        name:
+          - named-tcpdump
+          - rsyslog
 
     - name: tests
       include_tasks:
