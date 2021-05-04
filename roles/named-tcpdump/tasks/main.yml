@@ -3,6 +3,7 @@
       yum:
         name:
           - tcpdump
+          - rsyslog
         state: present
         disable_gpg_check: yes
       tags:
