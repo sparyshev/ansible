@@ -11,6 +11,7 @@
 
     - name: Copy config files to logrotate.d
       copy:
+        backup: yes
         src: files/logrotate-named-tcpdump
         dest: /etc/logrotate.d/
         owner: root
@@ -21,6 +22,7 @@
 
     - name: Copy config files to sysconfig
       copy:
+        backup: yes
         src: files/named-tcpdump
         dest: /etc/sysconfig/
         owner: root
@@ -31,6 +33,7 @@
 
     - name: Copy systemd service
       copy:
+        backup: yes
         src: files/named-tcpdump.service
         dest: /etc/systemd/system/
         owner: root
@@ -41,6 +44,7 @@
 
     - name: Copy rsyslog config
       template:
+        backup: yes
         src: templates/named-tcpdump.conf.j2
         dest: /etc/rsyslog.d/named-tcpdump.conf
         owner: root
