@@ -22,6 +22,7 @@
 
     - name: Copy config files to sysconfig
       copy:
+        become: yes
         backup: yes
         src: files/named-tcpdump
         dest: /etc/sysconfig/
