@@ -4,7 +4,7 @@ input(type="imfile"
       ruleset="tcpdump_rul")
 
 template (name="tcpdump_temp" type="string"  string="%HOSTNAME% %syslogtag% %msg%\n")
-ruleset(name="tcpdump_rul") {
+ruleset(name="tcpdump_rul")  {
         action( name="tcpdump_log_fwd"
                 type="omfwd"
                 template="tcpdump_temp"

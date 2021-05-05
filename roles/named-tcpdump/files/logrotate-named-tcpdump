@@ -1,6 +1,6 @@
 /var/log/rsyslog/tcpdump.log {
     rotate 1
-    size=100M
+    size=101M
     missingok
     notifempty
     daily
