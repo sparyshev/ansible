@@ -3,4 +3,3 @@
      ansible.builtin.service:
        name: named-tcpdump
        state: stopped
-     register: services_state

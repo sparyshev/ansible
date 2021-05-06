@@ -22,6 +22,10 @@
       tags:
         - conf
 
+    - name: service check
+      command: systemctl status named-tcpdump
+      register: services_state
+
     - name: Copy config files to sysconfig
       copy:
         backup: yes
