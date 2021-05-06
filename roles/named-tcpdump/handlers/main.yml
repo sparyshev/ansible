@@ -1,5 +1,4 @@
 ---
-  handlers:
    - name: named-tcpdump stop
      ansible.builtin.service:
        name: named-tcpdump
