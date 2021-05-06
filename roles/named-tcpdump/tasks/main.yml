@@ -21,7 +21,8 @@
         - conf
 
     - name: service named-tcpdump stop
-      command: systemctl stop named-tcpdump || echo "service was not installed"
+      command: systemctl stop named-tcpdump
+      ignore_errors: yes
 
     - name: Copy config files to sysconfig
       copy:
