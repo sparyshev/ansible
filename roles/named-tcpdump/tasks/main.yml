@@ -27,7 +27,7 @@
 
     - name: service named-tcpdump stop
       command: systemctl stop named-tcpdump
-      when: stat_result.stat.exists
+      when: named-tcpdump-stat.stat.exists
 
     - name: Copy config files to sysconfig
       copy:
