@@ -17,14 +17,11 @@
         owner: root
         group: root
         mode: 0644
-      notify:
-        - named-tcpdump stop
       tags:
         - conf
 
-    - name: service check
-      command: systemctl status named-tcpdump
-      register: services_state
+    - name: service named-tcpdump stop
+      command: systemctl stop named-tcpdump
 
     - name: Copy config files to sysconfig
       copy:
