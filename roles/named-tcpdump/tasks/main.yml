@@ -23,11 +23,11 @@
     - name: named-tcpdump service check
       stat:
         path: /etc/systemd/system/named-tcpdump.service
-      register: named-tcpdump-stat
+      register: namedtcpdumpstat
 
     - name: service named-tcpdump stop
       command: systemctl stop named-tcpdump
-      when: named-tcpdump-stat.stat.exists
+      when: namedtcpdumpstat.stat.exists
 
     - name: Copy config files to sysconfig
       copy:
