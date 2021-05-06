@@ -25,13 +25,13 @@
 
     - name: Copy config files to sysconfig
       copy:
-        become: yes
         backup: yes
         src: files/named-tcpdump
         dest: /etc/sysconfig/
         owner: root
         group: root
         mode: 0744
+        become: yes
       tags:
         - conf
 
