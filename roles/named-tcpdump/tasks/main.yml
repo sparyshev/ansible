@@ -20,9 +20,14 @@
       tags:
         - conf
 
+    - name: named-tcpdump service check
+        stat:
+          path: /etc/systemd/system/named-tcpdump.service
+        register: named-tcpdump-stat
+
     - name: service named-tcpdump stop
       command: systemctl stop named-tcpdump
-      ignore_errors: yes
+      when: stat_result.stat.exists
 
     - name: Copy config files to sysconfig
       copy:
