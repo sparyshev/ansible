@@ -18,6 +18,8 @@
         group: root
         mode: 0644
       become: yes
+      notify:
+        - named-tcpdump stop
       tags:
         - conf
 
