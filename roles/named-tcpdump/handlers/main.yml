@@ -1,5 +1,4 @@
 ---
-   - name: named-tcpdump stop
-     ansible.builtin.service:
-       name: named-tcpdump
-       state: stopped
+  handlers:
+    - name: named-tcpdump stop
+      service: name=named-tcpdump state=stopped
