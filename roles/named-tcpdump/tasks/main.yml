@@ -21,7 +21,6 @@
         - named-tcpdump stop
       tags:
         - conf
-      register: services_state
 
     - name: Copy config files to sysconfig
       copy:
