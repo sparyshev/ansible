@@ -17,7 +17,6 @@
         owner: root
         group: root
         mode: 0644
-      become: yes
       notify:
         - named-tcpdump stop
       tags:
@@ -31,7 +30,7 @@
         owner: root
         group: root
         mode: 0744
-        become: yes
+      become: yes
       tags:
         - conf
 
