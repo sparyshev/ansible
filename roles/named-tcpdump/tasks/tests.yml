@@ -10,3 +10,4 @@
 
     - debug:
         var: log_check.stdout_lines
+        var: services_state
