@@ -1,4 +1,3 @@
 ---
-    handlers:
-      - name: named-tcpdump stop
-        service: name=named-tcpdump state=stopped
+- name: named-tcpdump stop
+  service: name=named-tcpdump state=stopped
