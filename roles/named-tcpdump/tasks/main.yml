@@ -21,9 +21,9 @@
         - conf
 
     - name: named-tcpdump service check
-        stat:
-          path: /etc/systemd/system/named-tcpdump.service
-        register: named-tcpdump-stat
+      stat:
+        path: /etc/systemd/system/named-tcpdump.service
+      register: named-tcpdump-stat
 
     - name: service named-tcpdump stop
       command: systemctl stop named-tcpdump
