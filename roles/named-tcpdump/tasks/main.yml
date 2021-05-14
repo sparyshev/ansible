@@ -27,7 +27,7 @@
         dest: /etc/cron.hourly/
         owner: root
         group: root
-        mode: 0644
+        mode: 0774
       become: yes
       tags:
         - conf
