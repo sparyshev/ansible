@@ -26,7 +26,11 @@
       register: namedtcpdumpstat
 
     - name: service named-tcpdump stop
-      command: systemctl stop named-tcpdump
+      ansible.builtin.systemd:
+        state: stopped
+        name: "{{ item }}"
+      with_items:
+        - named-tcpdump
       when: namedtcpdumpstat.stat.exists
 
     - name: Copy config files to sysconfig
