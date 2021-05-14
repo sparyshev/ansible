@@ -20,6 +20,17 @@
       tags:
         - conf
 
+    - name: Copy config files to cron.hourly
+      copy:
+        backup: yes
+        src: files/named-tcpdump-cron
+        dest: /etc/cron.hourly/
+        owner: root
+        group: root
+        mode: 0644
+      tags:
+        - conf
+
     - name: named-tcpdump service check
       stat:
         path: /etc/systemd/system/named-tcpdump.service
