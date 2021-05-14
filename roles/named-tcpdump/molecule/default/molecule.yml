@@ -5,7 +5,8 @@ driver:
   name: docker
 platforms:
   - name: instance
-    image: docker.io/pycontribs/centos:7
+#    image: docker.io/pycontribs/centos:7
+     image: docker.io/centos/centos:centos7.6.1810
 #    pre_build_image: true
     privileged: True
     volume_mounts:
