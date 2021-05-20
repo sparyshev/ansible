@@ -48,3 +48,5 @@
         opts: rw,sync,hard,intr
         state: mounted
         fstype: nfs
+      tags:
+        - fstab
