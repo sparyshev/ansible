@@ -29,6 +29,7 @@
         mode: '0755'
 
     - name: Enable and reload NFS client services
+      ignore_errors: yes
       ansible.builtin.systemd:
         state: started
         enabled: yes
