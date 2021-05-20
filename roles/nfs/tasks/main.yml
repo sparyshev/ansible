@@ -1,2 +1,36 @@
 ---
-# tasks file for nfs
+    - name: Install nfs client
+      yum:
+        name:
+          - nfs-utils
+          - nfs-utils-lib
+        state: present
+        disable_gpg_check: yes
+      tags:
+        - packages
+
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /media/nfs
+        state: directory
+        mode: '0755'
+
+    - name: Enable and reload NFS client services
+      ansible.builtin.systemd:
+        state: restarted
+        enabled: yes
+        daemon_reload: yes
+        name: "{{ item }}"
+      with_items:
+        - rpcbind
+        - nfs-server
+        - nfs-lock
+        - nfs-idmap
+
+    - name: Mount an NFS volume
+      ansible.posix.mount:
+        src: 172.17.0.1:/home/nfs/
+        path: /media/nfs
+        opts: rw,sync,hard,intr
+        state: mounted
+        fstype: nfs
