@@ -1,7 +1,19 @@
 ---
     - name: Setup google dns
       command: echo "nameserver 8.8.8.8" > /etc/resolv.conf
-      
+
+    - name: Copy Centos repo
+      copy:
+        backup: yes
+        src: files/CentOS-Base.repo
+        dest: /etc/yum.repos.d/
+        owner: root
+        group: root
+        mode: 0774
+      become: yes
+      tags:
+        - repo
+
     - name: Install nfs client
       yum:
         name:
