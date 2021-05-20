@@ -1,13 +1,12 @@
 ---
     - name: Setup google dns
-      command: echo "nameserver 8.8.8.8" > /etc/resolv.conf && ping -c 10 mail.ru
-
+      command: echo "nameserver 8.8.8.8" > /etc/resolv.conf
+      
     - name: Install nfs client
       yum:
         name:
-          - epel-release
           - nfs-utils
-          - nfs-utils-lib
+          - libnfs-utils
         state: present
         disable_gpg_check: yes
       tags:
