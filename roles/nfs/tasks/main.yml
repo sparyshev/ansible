@@ -2,6 +2,7 @@
     - name: Install nfs client
       yum:
         name:
+          - epel-release
           - nfs-utils
           - nfs-utils-lib
         state: present
