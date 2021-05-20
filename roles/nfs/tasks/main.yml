@@ -1,19 +1,16 @@
 ---
     - name: Setup google dns
-      command: echo "nameserver 8.8.8.8" > /etc/resolv.conf && ls -la /etc/yum.repos.d/
+      command: echo "nameserver 8.8.8.8" > /etc/resolv.conf
       register: ls
 
-    - name: Copy Centos repo
-      copy:
-        backup: yes
-        src: files/CentOS-Base.repo
-        dest: /etc/yum.repos.d/
-        owner: root
-        group: root
-        mode: 0774
-      become: yes
+    - name: Install epel
+      yum:
+        name:
+          - epel-release
+        state: present
+        disable_gpg_check: yes
       tags:
-        - repo
+        - packages
 
     - name: Install nfs client
       yum:
@@ -50,6 +47,3 @@
         opts: rw,sync,hard,intr
         state: mounted
         fstype: nfs
-
-    - debug:
-        var: ls.stdout_lines
