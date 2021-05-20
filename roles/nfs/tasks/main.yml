@@ -38,8 +38,8 @@
       with_items:
         - rpcbind
         - nfs-server
-        - nfs-lock
-        - nfs-idmap
+#        - nfs-lock
+#        - nfs-idmap
 
     - name: Mount an NFS volume
       ansible.posix.mount:
