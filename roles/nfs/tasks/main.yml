@@ -30,7 +30,7 @@
 
     - name: Enable and reload NFS client services
       ansible.builtin.systemd:
-        state: restarted
+        state: started
         enabled: yes
         daemon_reload: yes
         name: "{{ item }}"
