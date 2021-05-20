@@ -43,6 +43,7 @@
 
     - name: Mount an NFS volume
       ansible.posix.mount:
+        backup: yes
         src: 172.17.0.1:/home/nfs/
         path: /media/nfs
         opts: rw,sync,hard,intr
