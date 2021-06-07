@@ -31,8 +31,7 @@
       with_items:
         - postgresql
 
-      handlers:
-        - name: restart postgres
-          service:
-            name: postgresql
-            state: restarted
+    - name: restart postgres
+      service:
+        name: postgresql
+        state: restarted
