@@ -1,9 +1,7 @@
 ---
 vars_files:
     - main.yml
-
   tasks:
-    
     - name: "Install packages"
       yum:
         name: "{{ item }}"
