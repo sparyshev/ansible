@@ -18,7 +18,7 @@
       with_items:
         - postgresql{{ pg_vers }}
         - postgresql{{ pg_vers }}-server
-        - postgresql{{ pg_vers }}-devel
+        #- postgresql{{ pg_vers }}-devel
         - python-setuptools
         - python2-pip
 
