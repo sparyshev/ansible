@@ -15,7 +15,7 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - psycopg2-binary
+        - psycopg3-binary
 
     - name: "Find out if PostgreSQL is initialized"
       ansible.builtin.stat:
