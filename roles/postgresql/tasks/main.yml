@@ -36,7 +36,8 @@
       register: postgres_data
 
     - name: "Initialize PostgreSQL"
-      shell: "postgresql-setup initdb || postgresql-{{ pg_vers }}-setup initdb"
+      #shell: "postgresql-setup initdb || postgresql-{{ pg_vers }}-setup initdb"
+      shell: "pg_ctl initdb"
       when: not postgres_data.stat.exists
 
     - name: "Start and enable services"
