@@ -1,5 +1,5 @@
 ---
 pg_vers: 10
-db_user: taras
-db_password: sparyshev
-db_name: maindb
+db_user: veeamuser
+db_password: veeampass
+db_name: veeamdb
