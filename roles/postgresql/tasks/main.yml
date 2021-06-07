@@ -1,4 +1,11 @@
 ---
+    - name: "Install epel repo"
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - epel-release
+
     - name: "Install packages"
       yum:
         name: "{{ item }}"
@@ -7,7 +14,7 @@
         - postgresql
         - postgresql-server
         - python-setuptools
-        - python3-pip
+        - python2-pip
         - postgresql-devel
 #        - https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 
@@ -18,7 +25,7 @@
       pip:
         name: "{{ item }}"
         state: present
-        executable: pip3
+        executable: pip
       with_items:
         - psycopg2-binary
 
