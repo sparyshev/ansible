@@ -1,5 +1,4 @@
 ---
-  tasks:
     - name: "Install packages"
       yum:
         name: "{{ item }}"
