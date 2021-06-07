@@ -45,11 +45,11 @@
         state: started
         enabled: yes
       with_items:
-        - postgresql
+        - postgresql{{ pg_vers }}
 
     - name: restart postgres
       service:
-        name: postgresql
+        name: postgresql{{ pg_vers }}
         state: restarted
 
     - name: "Create app database"
@@ -90,5 +90,5 @@
 
     - name: restart postgres
       service:
-        name: postgresql
+        name: postgresql{{ pg_vers }}
         state: restarted
