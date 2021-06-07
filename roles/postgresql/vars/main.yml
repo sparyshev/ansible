@@ -1,4 +1,5 @@
 ---
+pg_vers: 10
 db_user: taras
 db_password: sparyshev
 db_name: maindb

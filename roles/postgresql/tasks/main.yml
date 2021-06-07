@@ -16,9 +16,9 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - postgresql
-        - postgresql-server
-        - postgresql-devel
+        - postgresql"{{ pg_vers }}"
+        - postgresql"{{ pg_vers }}"-server
+        - postgresql"{{ pg_vers }}"-devel
         - python-setuptools
         - python2-pip
 
