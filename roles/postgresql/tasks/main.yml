@@ -37,8 +37,6 @@
 
     - name: "Initialize PostgreSQL"
       shell: "postgresql-setup initdb || postgresql-{{ pg_vers }}-setup initdb"
-#      become: yes
-#      become_user: postgres
       when: not postgres_data.stat.exists
 
     - name: "Start and enable services"
@@ -47,11 +45,11 @@
         state: started
         enabled: yes
       with_items:
-        - postgresql{{ pg_vers }}
+        - postgresql-{{ pg_vers }}
 
     - name: restart postgres
       service:
-        name: postgresql{{ pg_vers }}
+        name: postgresql-{{ pg_vers }}
         state: restarted
 
     - name: "Create app database"
@@ -92,5 +90,5 @@
 
     - name: restart postgres
       service:
-        name: postgresql{{ pg_vers }}
+        name: postgresql-{{ pg_vers }}
         state: restarted
