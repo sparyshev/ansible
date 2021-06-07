@@ -105,4 +105,6 @@
       service:
         name: postgresql-{{ pg_vers }}
         state: restarted
-      tags: create
+      tags:
+        - create
+        - restart
