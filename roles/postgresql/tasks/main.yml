@@ -14,7 +14,7 @@
       shell: echo alias pip=pip3 >> ~/.bashrc
 
     - name: "Install Python packages"
-      pip:
+      pip3:
         name: "{{ item }}"
         state: present
       with_items:
