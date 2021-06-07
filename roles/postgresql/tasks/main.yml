@@ -8,6 +8,7 @@
         - postgresql-server
         - python-setuptools
         - python3-pip
+        - postgresql-devel
 #        - https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 
 #    - name: creating alias
@@ -19,7 +20,7 @@
         state: present
         executable: pip3
       with_items:
-        - psycopg3-binary
+        - psycopg2-binary
 
     - name: "Find out if PostgreSQL is initialized"
       ansible.builtin.stat:
