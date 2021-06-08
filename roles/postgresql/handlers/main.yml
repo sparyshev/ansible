@@ -1,2 +1,13 @@
 ---
 # handlers file for postgresql
+- name: enable and start postgresql
+  systemd:
+    state: started
+    enabled: yes
+    name: postgresql-{{ pg_vers }}
+    daemon_reload: yes
+
+- name: restart postgresql
+  systemd:
+    state: restarted
+    name: postgresql-{{ pg_vers }}

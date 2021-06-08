@@ -9,36 +9,34 @@
 ---
     - name: "Install epel repo"
       yum:
-        name: "{{ item }}"
+        name:
+          - epel-release
         state: present
-      with_items:
-        - epel-release
       tags: repo
 
     - name: "Install postgresql repo"
       yum:
-        name: https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+        name:
+          - https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
         state: present
       tags: repo
 
     - name: "Install packages"
       yum:
-        name: "{{ item }}"
+        name:
+          - postgresql{{ pg_vers }}
+          - postgresql{{ pg_vers }}-server
+          - python-setuptools
+          - python2-pip
         state: present
-      with_items:
-        - postgresql{{ pg_vers }}
-        - postgresql{{ pg_vers }}-server
-        - python-setuptools
-        - python2-pip
       tags: packages
 
     - name: "Install Python packages"
       pip:
-        name: "{{ item }}"
+        name:
+          - psycopg2-binary
         state: present
         executable: pip
-      with_items:
-        - psycopg2-binary
       tags: packages
 
     - name: "Find out if PostgreSQL is initialized"
@@ -51,15 +49,8 @@
       shell: "postgresql-setup initdb || postgresql-{{ pg_vers }}-setup initdb"
       when: not postgres_data.stat.exists
       tags: init
-
-    - name: "Start and enable services"
-      service:
-        name: "{{ item }}"
-        state: started
-        enabled: yes
-      with_items:
-        - postgresql-{{ pg_vers }}
-      tags: service
+      notify:
+        - enable and start postgresql
 
     - name: "Create app database"
       postgresql_db:
@@ -100,11 +91,5 @@
       become: yes
       become_user: postgres
       tags: create
-
-    - name: restart postgres
-      service:
-        name: postgresql-{{ pg_vers }}
-        state: restarted
-      tags:
-        - create
-        - restart
+      notify:
+        - restart postgresql
