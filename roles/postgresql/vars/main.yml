@@ -1,5 +1,12 @@
 ---
+<<<<<<< HEAD
+pg_vers: 12
+db_user: tmp_user
+db_password: tmp_password
+db_name: tmp_base
+=======
 pg_vers: 10
 db_user: veeamuser
 db_password: veeampass
 db_name: veeamdb
+>>>>>>> 6db82086ece3530082d55ca1d68eba6d9714d75a
