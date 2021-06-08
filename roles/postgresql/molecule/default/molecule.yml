@@ -14,7 +14,7 @@ platforms:
 provisioner:
   name: ansible
   config_options:
-  defaults:
-    vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/vault.pw"
+    defaults:
+      vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/vault.pw"
 verifier:
   name: ansible
