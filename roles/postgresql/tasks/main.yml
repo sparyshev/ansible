@@ -48,9 +48,9 @@
     - name: "Initialize PostgreSQL"
       shell: "postgresql-{{ pg_vers }}-setup initdb"
       when: not postgres_data.stat.exists
-      tags: init
       notify:
         - enable and start postgresql
+      tags: init
 
     - name: "Create app database"
       postgresql_db:
