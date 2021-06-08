@@ -46,7 +46,7 @@
       tags: init
 
     - name: "Initialize PostgreSQL"
-      shell: "postgresql-setup initdb || postgresql-{{ pg_vers }}-setup initdb"
+      shell: "postgresql-{{ pg_vers }}-setup initdb"
       when: not postgres_data.stat.exists
       tags: init
       notify:
