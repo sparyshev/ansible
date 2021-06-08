@@ -48,9 +48,14 @@
     - name: "Initialize PostgreSQL"
       shell: "postgresql-{{ pg_vers }}-setup initdb"
       when: not postgres_data.stat.exists
-      meta:
-        - enable and start postgresql
       tags: init
+
+    - name: enable and start postgresql
+      ansible.builtin.systemd:
+        state: started
+        enabled: yes
+        name: postgresql-{{ pg_vers }}
+        daemon_reload: yes
 
     - name: "Create app database"
       postgresql_db:
